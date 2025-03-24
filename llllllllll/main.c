@@ -6,7 +6,7 @@
 /*   By: ahabibi- <ahabibi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:52:49 by ahabibi-          #+#    #+#             */
-/*   Updated: 2025/03/23 16:52:50 by ahabibi-         ###   ########.fr       */
+/*   Updated: 2025/03/24 21:26:23 by ahabibi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int ac, char **av)
 	if (ac < 2)
 	{
 		write(2, "Error\n", 6);
-		return (0);
+		return (1);
 	}
 	parse_and_fill_stack(ac, av, &stack_a);
 	stack_index(&stack_a);

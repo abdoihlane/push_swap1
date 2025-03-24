@@ -6,7 +6,7 @@
 /*   By: ahabibi- <ahabibi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:53:27 by ahabibi-          #+#    #+#             */
-/*   Updated: 2025/03/24 15:53:01 by ahabibi-         ###   ########.fr       */
+/*   Updated: 2025/03/24 21:26:44 by ahabibi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	parse_and_fill_stack(int ac, char **av, t_list **stack_a)
 		j = 0;
 		while (split[j])
 		{
-			if (is_invalid_sign(split[j]) || !ft_isdigit(split[j][0])
-				|| alpha_or_not(split[j]) || split[j][0] != '\0')
-				frexit(stack_a);
+			if (!is_invalid_sign(split[j]) || !ft_isdigit(split[j][0])
+				|| alpha_or_not(split[j]) || split[j][0] == '\0')
+					frexit(stack_a);
 			add_to_stack(stack_a, ft_atoi(split[j]));
 			j++;
 			len++;
@@ -44,7 +44,7 @@ void	parse_and_fill_stack(int ac, char **av, t_list **stack_a)
 		free_array(split);
 		i++;
 	}
-	if (has_duplicates(*stack_a))
+	if (has_duplicates(*stack_a) || len < 2)
 		frexit(stack_a);
 }
 
